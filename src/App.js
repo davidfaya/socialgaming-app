@@ -5,7 +5,6 @@ import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import { Container } from 'semantic-ui-react'
 
-import MenuBar from './components/MenuBar'
 import Navbar from './components/NavBar'
 import Home from './pages/Home'
 import Login from './pages/Login'

@@ -1,9 +1,9 @@
 import React, { useContext, useState, useRef } from 'react'
 import moment from 'moment'
-import { Image, Button, Grid, Card, Label, Icon, Form } from 'semantic-ui-react'
-import { useMutation, useQuery } from '@apollo/client'
+import { Button, Grid, Card, Label, Icon, Form } from 'semantic-ui-react'
+import { useMutation } from '@apollo/client'
 
-import { FETCH_SINGLE_POST_QUERY, CREATE_COMMENT_MUTATION } from '../utils/graphqlQueries'
+import { CREATE_COMMENT_MUTATION } from '../utils/graphqlQueries'
 
 import {AuthContext} from '../context/auth'
 import LikeButton from '../components/LikeButton'
@@ -20,13 +20,12 @@ function SinglePost(props) {
     const commentInputRef = useRef(null)
 
     const postId = props.match.params.postId
-    const res = useQuery(FETCH_SINGLE_POST_QUERY, {
+    // const res = useQuery(FETCH_SINGLE_POST_QUERY, {
         
-        variables: {
-            postId
-        }
-    })
-    const {data} = res
+    //     variables: {
+    //         postId
+    //     }
+    // })
 
     const [createComment] = useMutation(CREATE_COMMENT_MUTATION, {
         update(_, res) {

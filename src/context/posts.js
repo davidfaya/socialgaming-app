@@ -118,24 +118,9 @@ function authReducer(state, action) {
 
 function PostsProvider(props) {
     const [state, dispatch] = useReducer(authReducer, initialState)
-    const { isLoading, data } = useQuery(FETCH_POSTS_QUERY)
+    const { data } = useQuery(FETCH_POSTS_QUERY)
 
-
-    useEffect(()=> {
-        initPosts()
-    }, [data])
-
-
-    const initPosts = () => {
-        if (data && !initialized){
-            console.log('initialzing context with data - ', data)
-            initialized = true
-            dispatch({
-                type:'SET_POSTS',
-                payload: data.getPosts
-            })
-        }
-    }
+    
     const addPost = (postData) => {
         dispatch({
             type:'ADD_POST',
@@ -167,10 +152,21 @@ function PostsProvider(props) {
             payload: { postId, comments }
         })
     }
+    
+    useEffect(()=> {
+        if (data && !initialized){
+            console.log('initialzing context with data - ', data)
+            initialized = true
+            dispatch({
+                type:'SET_POSTS',
+                payload: data.getPosts
+            })
+        }
+    }, [data])
 
     return (
         <PostsContext.Provider
-            value={{posts:state.posts, addPost, deletePost, initPosts, toggleLike, deleteComment, createComment}}
+            value={{posts:state.posts, addPost, deletePost, toggleLike, deleteComment, createComment}}
             {...props} 
         />
     )

@@ -24,7 +24,7 @@ function Login(props) {
         },
         onError(err) {
             console.log(err)
-            if(err.graphQLErrors[0] != undefined)
+            if(err.graphQLErrors[0] !== undefined)
                 setErrors(err.graphQLErrors[0].extensions.exception.errors)
         },
         variables: values

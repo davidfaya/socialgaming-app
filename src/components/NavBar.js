@@ -13,9 +13,9 @@ const Navbar = () => {
   const menuLinks = user ? loggedInLinks : links
 
   //Get current page from url
-  const pathname = window.location.pathname
-  const pagePath = pathname === '/' ? 'home' : pathname.substr(1)
-  const [activeItem, setActiveItem] = useState(pagePath)
+  //const pathname = window.location.pathname
+  //const pagePath = pathname === '/' ? 'home' : pathname.substr(1)
+  //const [activeItem, setActiveItem] = useState(pagePath)
 
 
   const toggleLinks = () => {
@@ -53,7 +53,7 @@ const Navbar = () => {
               else {
                 return (
                     <li key={id}>
-                    <a href={url} active={activeItem === url? 'true': 'false'}>{text}</a>
+                    <a href={url} >{text}</a>
                     </li>
                 )}
             })}

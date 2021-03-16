@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom'
 import {AuthContext} from '../context/auth'
 
 function MenuBar() {
-    const state = { activeItem: 'home' }
+    
     const context = useContext(AuthContext)
 
-    //Get current page from url
+    //Get current page from url 
     const pathname = window.location.pathname
     const pagePath = pathname === '/' ? 'home' : pathname.substr(1)
     const [activeItem, setActiveItem] = useState(pagePath)

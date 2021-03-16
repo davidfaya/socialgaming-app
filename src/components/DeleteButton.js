@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react'
-import { Link } from 'react-router-dom'
 import {  Button, Icon, Confirm } from 'semantic-ui-react'
 import { useMutation  } from '@apollo/client'
 import { DELETE_POST_MUTATION, DELETE_COMMENT_MUTATION } from '../utils/graphqlQueries'

@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { Form, Button, Card } from 'semantic-ui-react'
 import { useForm } from '../utils/hooks'
 import {useMutation} from '@apollo/client'
-import { CREATE_POST_MUTATION, FETCH_POSTS_QUERY } from '../utils/graphqlQueries'
+import { CREATE_POST_MUTATION } from '../utils/graphqlQueries'
 import { PostsContext } from '../context/posts'
 
 
@@ -21,9 +21,7 @@ function PostForm(props) {
             variables: values,
             update(proxy, result) {
                 console.log(result)
-                const data = proxy.readQuery({
-                    query: FETCH_POSTS_QUERY
-                  })
+                
                 clearForm()
                 postsContext.addPost(result.data.createPost)
                 
