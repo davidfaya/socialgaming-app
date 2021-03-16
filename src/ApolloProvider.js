@@ -5,7 +5,7 @@ import { setContext } from 'apollo-link-context'
 require('dotenv').config()
 
 const httpLink = createHttpLink({
-    uri: "https://socialgaming-server.herokuapp.com/"
+    uri: process.env.BACK_END_HOST || "https://socialgaming-server.herokuapp.com/"
 })
 
 const authLink = setContext(()=> {
