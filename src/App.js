@@ -6,6 +6,7 @@ import './App.css';
 import { Container } from 'semantic-ui-react'
 
 import MenuBar from './components/MenuBar'
+import Navbar from './components/NavBar'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
@@ -22,17 +23,18 @@ function App() {
   console.log('')
   return (
     <AuthProvider>
-      <PostsProvider>
+    <PostsProvider>
       <Router>
         <Container>
-          <MenuBar />
+          {/* <MenuBar /> */}
+          <Navbar />
           <Route exact path='/' component={Home} />
           <AuthRoute exact path='/login' component={Login} />
           <AuthRoute exact path='/signup' component={SignUp} />     
           <Route exact path='/posts/:postId' component={SinglePost} />
         </Container> 
       </Router>
-      </PostsProvider>
+    </PostsProvider>
     </AuthProvider>
 
   )

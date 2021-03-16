@@ -5,8 +5,6 @@ import PostCard from '../components/PostCard'
 import {AuthContext} from '../context/auth'
 import {PostsContext} from '../context/posts'
 import PostForm from '../components/PostForm'
-import { FETCH_POSTS_QUERY } from '../utils/graphqlQueries'
-import { set } from 'mongoose'
 
 
 function Home() {
@@ -26,10 +24,11 @@ function Home() {
 
     return (
         
-    <Grid columns={3} divided>
+    <Grid columns={1} divided>
         {/* {console.log(posts)} */}
         <Grid.Row className='page-title'>
-            <h1>Post Feed</h1>
+            {user? (<h2>Welcome {user.username}</h2> ) :
+            (<h2>Posts</h2>)}
         </Grid.Row>
         <Grid.Row>
             {

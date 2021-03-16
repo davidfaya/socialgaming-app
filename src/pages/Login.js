@@ -41,7 +41,7 @@ function Login(props) {
     return (
         <div className="signup-container">
             <Form onSubmit={onSubmit} noValidate className={loading? 'loading': ''}>
-                <h1>Login</h1>
+                <h2>Login</h2>
                 <Form.Input
                     label="Username"
                     placeholder="Username.."

@@ -32,26 +32,27 @@ function LikeButton({user, posts: {id, likes}}) {
     
     const showLikeButton = user ? (
         liked ? (
-          <Button color="purple" onClick={likePost}>
+          <Button className='like-button' onClick={likePost}>
             <Icon name="heart" />
           </Button>
         ) : (
-          <Button color="purple" onClick={likePost} basic>
+          <Button className='unlike-button' onClick={likePost}>
             <Icon name="heart" />
           </Button>
         )
       ) : (
-        <Button as={Link} to="/login" color="purple" basic>
+        <Button className='unlike-button' as={Link} to="/login">
           <Icon name="heart" />
         </Button>
       );
 
+    console.log(showLikeButton)
     return (
         <React.Fragment>
           <MyPopUp content={liked ? 'Unlike' : 'Like'}>
               <Button as='div' labelPosition='right'>
                   {showLikeButton}
-                  <Label basic color='purple' pointing='left'>
+                  <Label basic className='like-button' pointing='left'>
                       {numLikes}
                   </Label>
               </Button>

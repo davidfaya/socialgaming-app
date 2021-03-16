@@ -14,7 +14,7 @@ function DeleteButton({postId, commentId, callback}) {
     const mutation = commentId ? DELETE_COMMENT_MUTATION: DELETE_POST_MUTATION
     const [confirmModal, setConfirmModal] = useState(false)
     
-    console.log('DELETE BTN', postId, commentId)
+    
     const [deletePostOrComment] = useMutation(mutation, {
         update(proxy, result) {
             //console.log(result)

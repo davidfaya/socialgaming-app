@@ -54,15 +54,10 @@ function SinglePost(props) {
         const post = postsContext.posts.find(itm => itm.id === postId)
         
         postMarkup = (
+            <div className="single-post-container">
             <Grid>
                 <Grid.Row>
-                    <Grid.Column width={2}>
-                    <Image
-                        src=""
-                        size="small"
-                        float="right"/>
-                    </Grid.Column >
-                    <Grid.Column width={10}>
+                    <Grid.Column>
                         <Card fluid>
                             <Card.Content>
                                 <Card.Header>{post.username}</Card.Header>
@@ -75,13 +70,11 @@ function SinglePost(props) {
                                 <MyPopUp content='Comment on post'>
                                     <Button 
                                         as="div"
-                                        labelPosition="right"
-                                        onClick={()=> console.log("add comment")} >
-
-                                            <Button color="teal">
+                                        labelPosition="right" >
+                                            <Button className='comment-button'>
                                                 <Icon name="comments" />
                                             </Button>
-                                            <Label basic color="teal" pointing="left">
+                                            <Label basic pointing="left">
                                                 {post.comments.length}
                                             </Label>
                                     </Button>
@@ -106,7 +99,7 @@ function SinglePost(props) {
                                                 />
                                             <button 
                                                 type='submit' 
-                                                className='ui button purple'
+                                                className='ui button submit-button'
                                                 disabled={comment.trim()===''}
                                                 onClick={createComment} > 
                                                     Submit
@@ -133,6 +126,7 @@ function SinglePost(props) {
                     
                 </Grid.Row>
             </Grid>
+            </div>
         )
     }
 

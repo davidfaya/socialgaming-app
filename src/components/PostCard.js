@@ -17,6 +17,7 @@ function PostCard(props) {
     //console.log(props.post)
     
     return (
+        <div className='box-shadow-container'>
         <Card fluid>
             <Card.Content>
                 <Image
@@ -37,10 +38,10 @@ function PostCard(props) {
                 
                 <MyPopUp content='Comment on Post'>
                     <Button labelPosition='right' as={Link} to={`./posts/${id}`}>
-                        <Button color='teal'>
+                        <Button className='comment-button'>
                             <Icon name='comments' />
                         </Button>
-                        <Label basic color='teal' pointing='left'>
+                        <Label basic pointing='left'>
                             {comments.length}
                         </Label>
                     </Button>
@@ -48,6 +49,7 @@ function PostCard(props) {
                 {user && user.username === username && <DeleteButton postId={id}/>}
             </Card.Content>
         </Card>
+        </div>
     )
 }
 export default PostCard
