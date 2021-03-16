@@ -2,9 +2,10 @@ import React from 'react'
 import App from './App'
 import { ApolloClient,InMemoryCache,createHttpLink,ApolloProvider }  from '@apollo/client'
 import { setContext } from 'apollo-link-context'
+require('dotenv').config()
 
 const httpLink = createHttpLink({
-    uri: "http://localhost:5000"
+    uri: "https://socialgaming-server.herokuapp.com/"
 })
 
 const authLink = setContext(()=> {
