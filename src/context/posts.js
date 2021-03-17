@@ -155,7 +155,7 @@ function PostsProvider(props) {
     
     useEffect(()=> {
         if (data && !initialized){
-            console.log('initialzing context with data - ', data)
+            //console.log('initialzing context with data - ', data)
             initialized = true
             dispatch({
                 type:'SET_POSTS',

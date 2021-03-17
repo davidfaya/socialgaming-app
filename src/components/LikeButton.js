@@ -46,7 +46,7 @@ function LikeButton({user, posts: {id, likes}}) {
         </Button>
       );
 
-    console.log(showLikeButton)
+    
     return (
         <React.Fragment>
           <MyPopUp content={liked ? 'Unlike' : 'Like'}>
