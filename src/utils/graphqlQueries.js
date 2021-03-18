@@ -119,3 +119,14 @@ export const FETCH_USER_QUERY = gql`
         }
     } 
 `
+
+export const FETCH_USERS_QUERY = gql`
+{
+    getUsers{
+        id
+        username
+        email
+        image
+        createdAt
+    }
+}`

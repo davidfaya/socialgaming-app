@@ -17,6 +17,7 @@ import Profile from './pages/Profile'
 import {AuthProvider} from './context/auth'
 import  AuthRoute from './utils/authRoute'
 import { PostsProvider } from './context/posts';
+import {UsersProvider} from './context/users'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   return (
     <AuthProvider>
     <PostsProvider>
+    <UsersProvider>
       <Router>
         <Container>
           {/* <MenuBar />  */}
@@ -38,6 +40,7 @@ function App() {
           <Route exact path='/posts/:postId' component={SinglePost} />
         </Container> 
       </Router>
+    </UsersProvider>
     </PostsProvider>
     </AuthProvider>
 

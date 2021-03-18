@@ -45,7 +45,7 @@ function AuthProvider(props) {
             localStorage.removeItem('jwt')
         else {
             cachedUserId = decodedToken.id
-            console.log('jwt token user - ', decodedToken)
+            //console.log('jwt token user - ', decodedToken)
         }
     }
 
@@ -64,13 +64,13 @@ function AuthProvider(props) {
     if (data) state.user = data.getUser
 
     useEffect(()=> {
-        console.log('got user ' , data)
+        //console.log('got user ' , data)
         if (data) state.user = data.getUser
     },[data, state])
 
     const login = (loginData) => {
         localStorage.setItem('jwt', loginData.token)
-        console.log(loginData)
+        //console.log(loginData)
         dispatch({
             type:'LOGIN',
             payload: loginData
