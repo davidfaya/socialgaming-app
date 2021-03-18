@@ -23,7 +23,7 @@ const PostsContext = createContext({
 })
 
 
-function authReducer(state, action) {
+function postsReducer(state, action) {
 
     switch(action.type) {
         case 'SET_LOADING':
@@ -124,7 +124,7 @@ function authReducer(state, action) {
 
 
 function PostsProvider(props) {
-    const [state, dispatch] = useReducer(authReducer, initialState)
+    const [state, dispatch] = useReducer(postsReducer, initialState)
     const { loading, data } = useQuery(FETCH_POSTS_QUERY)
 
     
