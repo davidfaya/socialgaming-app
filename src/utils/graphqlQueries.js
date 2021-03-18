@@ -107,3 +107,15 @@ export const CREATE_COMMENT_MUTATION = gql`
         }
     }
 `
+
+export const FETCH_USER_QUERY = gql`
+    query($userId: ID!) {
+        getUser(userId: $userId) {
+            id
+            email
+            image
+            createdAt
+            username
+        }
+    } 
+`

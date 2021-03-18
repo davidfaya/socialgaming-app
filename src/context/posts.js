@@ -7,7 +7,8 @@ import { useQuery } from '@apollo/client'
 var initialized = false
 
 const initialState = {
-    posts:[]
+    posts:[],
+    loading: true
 }
 
 
@@ -25,6 +26,12 @@ const PostsContext = createContext({
 function authReducer(state, action) {
 
     switch(action.type) {
+        case 'SET_LOADING':
+            console.log('set loading ' , action.payload)
+            return {
+                ...state,
+                loading: action.payload
+            }
         case 'SET_POSTS':
             return {
                 ...state,
@@ -118,7 +125,7 @@ function authReducer(state, action) {
 
 function PostsProvider(props) {
     const [state, dispatch] = useReducer(authReducer, initialState)
-    const { data } = useQuery(FETCH_POSTS_QUERY)
+    const { loading, data } = useQuery(FETCH_POSTS_QUERY)
 
     
     const addPost = (postData) => {
@@ -163,6 +170,13 @@ function PostsProvider(props) {
             })
         }
     }, [data])
+
+    useEffect(()=> {
+        dispatch({
+            type:'SET_LOADING',
+            payload: loading
+        })
+    }, [loading])
 
     return (
         <PostsContext.Provider

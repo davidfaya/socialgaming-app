@@ -3,6 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import { links, loggedInLinks, social } from '../utils/navBarItems';
 import logo from '../logo.png';
 import {AuthContext} from '../context/auth'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -33,7 +34,9 @@ const Navbar = () => {
     <nav>
       <div className='nav-center'>
         <div className='nav-header'>
-          <img src={logo} className='logo' alt='logo' />
+          <Link to='/'>
+            <img  src={logo} className='logo' alt='logo' />
+          </Link>
           <button className='nav-toggle' onClick={toggleLinks}>
             <FaBars />
           </button>
@@ -46,14 +49,14 @@ const Navbar = () => {
               {
                 return (
                     <li key={id}>
-                    <a href='/' onClick={logout}>{text}</a>
+                    <Link to='/' onClick={logout}>{text}</Link>
                     </li>
                 )
               }
               else {
                 return (
                     <li key={id}>
-                    <a href={url} >{text}</a>
+                    <Link  to={url} >{text}</Link>
                     </li>
                 )}
             })}

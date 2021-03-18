@@ -27,11 +27,16 @@ export const loggedInLinks = [
     },
     {
       id: 2,
+      url: '/posts',
+      text: 'posts',
+    },
+    {
+      id: 3,
       url: '/profile',
       text: 'profile',
     },
     {
-      id: 3,
+      id: 4,
       url: '/logout',
       text: 'logout',
     },
