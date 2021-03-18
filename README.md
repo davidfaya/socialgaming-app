@@ -3,6 +3,6 @@ Using React
 Apollo Client 
 
 # Currently deployed at 
-https://socialgaming.netlify.app/
+https://arcadia-app.netlify.app/
 
 Sign up and git it a try!
