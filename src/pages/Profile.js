@@ -10,7 +10,7 @@ import {AuthContext} from '../context/auth'
 function Profile(props) {
 
     const {user} = useContext(AuthContext)
-    const {posts} = useContext(PostsContext)
+    let {posts} = useContext(PostsContext)
 
     console.log(user)
     if (user) posts = posts.filter(post => post.username === user.username)
