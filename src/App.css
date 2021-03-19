@@ -7,6 +7,7 @@ Variables
 
 :root {
   /* dark shades of primary color*/
+  --clr-primary-0: #497cb0;
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-2: hsl(205, 77%, 27%);
   --clr-primary-3: hsl(205, 72%, 37%);
@@ -202,23 +203,6 @@ Posts
 .comment-button:hover{
   background: var(--clr-primary-4) !important;
 }
-.logo-container{
-  width: 50%;
-  margin-top: 200px;
-  margin-bottom: 100px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-.merng-container{
-  margin: auto;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-shrink: 3;
-  justify-content: space-evenly;
-
-}
 
 .rotate {
   transition: var(--transition);
@@ -241,28 +225,31 @@ Home
   border-radius:50%; 
 }
 
+#parent{
+  position: relative;
+}
+#son1{
+  position: absolute;
+}
 .circle{
   width:100px;
   height:100px;
-  position:absolute;
-  top:0; bottom:0; left:0;right:0;
+  position: absolute;
+  top:60%;left:30%;
   margin:auto;
+  opacity: 0; 
   animation: circle 5s linear infinite;
 }
 .circle2{
-  opacity: 0;
   animation-delay: 1s;
 }
 .circle3{
-  opacity: 0;
   animation-delay: 2s;
 }
 .circle4{
-  opacity: 0;
   animation-delay: 3s;
 }
 .circle5{
-  opacity: 0;
   animation-delay: 4s;
 }
 
@@ -281,6 +268,138 @@ Home
               rotate(-360deg);
   }
 }
+.profile-image-content {
+    cursor: pointer;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.profile-image-content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.profile-image-content:hover .content-overlay{
+  opacity: 1;
+}
+.profile-image-content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+.content-details {
+  color: white;
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary-2);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid var(--clr-black);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  margin: 0.5rem;
+  
+}
+.btn:hover {
+  color: var(--clr-black);
+  background: transparent;
+}
+
+/*
+=============== 
+Avatar Modal
+===============
+*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  visibility: hidden;
+  z-index: -1;
+}
+/* OPEN/CLOSE MODAL */
+.show-modal {
+  visibility: visible;
+  z-index: 10;
+}
+.modal-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  width: 90vw;
+  height: 90%;
+  max-width: var(--fixed-width);
+  text-align: center;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.avatar-picker-container {
+ 
+  display: flex; 
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+.avatar-picker-item {
+  margin: 10px;
+  border: 2px solid transparent;
+}
+.avatar-picker-item:hover {
+  border: 2px solid var(--clr-primary-7);
+  cursor: pointer;
+}
+
+.avatar-picker-selcted {
+  border: 2px solid var(--clr-primary-1);
+  color: #497cb0;
+  opacity: 0.5;
+}
+
 
 
 /*
@@ -300,14 +419,17 @@ nav {
 }
 .nav-toggle {
   font-size: 1.5rem;
-  color: var(--clr-primary-5);
+  color: var(--clr-primary-3);
   background: transparent;
   border-color: transparent;
   transition: var(--transition);
   cursor: pointer;
 }
+.nav-toggle:focus {
+  border-color: transparent;
+}
 .nav-toggle:hover {
-  color: var(--clr-primary-1);
+  color: var(--clr-primary-6);
   transform: rotate(90deg);
 }
 .logo {
@@ -384,3 +506,4 @@ nav {
     color: var(--clr-primary-7);
   }
 }
+

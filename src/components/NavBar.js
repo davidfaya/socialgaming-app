@@ -22,13 +22,18 @@ const Navbar = () => {
   const toggleLinks = () => {
     setShowLinks(!showLinks);
   };
+  const hideLinks = () => {
+    console.log('hide')
+    setShowLinks(false);
+  };
   useEffect(() => {
-    const linksHeight = linksRef.current.getBoundingClientRect().height + 20;
-    if (showLinks) {
-      linksContainerRef.current.style.height = `${linksHeight}px`;
-    } else {
-      linksContainerRef.current.style.height = '0px';
-    }
+        const linksHeight = linksRef.current.getBoundingClientRect().height + 20;
+        if (showLinks) {
+            linksContainerRef.current.style.height = `${linksHeight}px`;
+        } else {
+            console.log('hide')
+            linksContainerRef.current.style.height = '0px';
+        }
   }, [showLinks]);
   return (
     <nav>
@@ -56,7 +61,7 @@ const Navbar = () => {
               else {
                 return (
                     <li key={id}>
-                    <Link  to={url} >{text}</Link>
+                    <Link  to={url} onClick={hideLinks}>{text}</Link>
                     </li>
                 )}
             })}

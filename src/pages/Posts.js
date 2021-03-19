@@ -1,9 +1,11 @@
+
 import React, { useContext } from 'react'
 import {Grid, Transition} from 'semantic-ui-react'
 import PostCard from '../components/PostCard' 
 import {AuthContext} from '../context/auth'
 import {PostsContext} from '../context/posts'
 import PostForm from '../components/PostForm'
+
 
 
 function Posts() {

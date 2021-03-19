@@ -7,14 +7,18 @@ import LikeButton from '../components/LikeButton'
 import {AuthContext} from '../context/auth'
 import DeleteButton from './DeleteButton'
 import MyPopUp from '../utils/MyPopUp'
+import { useUsersContext } from '../context/users'
 
 function PostCard(props) {
 
     const {user} = useContext(AuthContext)
   
+    const {users} = useUsersContext()
+
     
     const {body, createdAt, id, username, likes, comments} = props.post
     //console.log(props.post)
+    const userImg = getUserImage(users, username)
     
     return (
         <div className='box-shadow-container'>
@@ -23,7 +27,7 @@ function PostCard(props) {
                 <Image
                 floated='right'
                 size='mini'
-                src={process.env.PUBLIC_URL + '/images/steve.jpeg'}
+                src={process.env.PUBLIC_URL + '/images/avatars/' + userImg}
                 />
                 <Card.Header>{username}</Card.Header>
                 <Card.Meta as={Link} to={`./posts/${id}`}>{moment(createdAt).fromNow(true)}</Card.Meta>
@@ -51,5 +55,13 @@ function PostCard(props) {
         </Card>
         </div>
     )
+}
+
+function getUserImage(users, username) {
+    const usr = users.filter(usr => usr.username===username)
+    if (usr[0])
+        return usr[0].image
+    else
+        return ""
 }
 export default PostCard
