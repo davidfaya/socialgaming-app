@@ -43,7 +43,7 @@ function Profile(props) {
                 <div className='profile-image-content' onClick={showAvatarModal}>
                     <div className="content-overlay"></div>
                     {console.log(process.env.PUBLIC_URL + '/images/avatars/' + user.image)}
-                    <img src={process.env.PUBLIC_URL + '/images/avatars/' + user.image} width='400px'></img>
+                    <img alt="avatar" src={process.env.PUBLIC_URL + '/images/avatars/' + user.image} width='400px'></img>
                     
                     <div className="content-details fadeIn-top">
                         <h3>Change your Avatar</h3>
@@ -93,7 +93,7 @@ function Profile(props) {
                     {avatars.map(avatar => 
                         <div  onClick={()=>setSelectedAvatar(avatar)}
                             className={`${selectedAvatar === avatar ? 'avatar-picker-item avatar-picker-selcted' : 'avatar-picker-item'}`}>  
-                            <img src={process.env.PUBLIC_URL + '/images/avatars/' + avatar} width='85px'></img>
+                            <img alt="avatar" src={process.env.PUBLIC_URL + '/images/avatars/' + avatar} width='85px'></img>
                         </div>)}
                 </div>
                 <button  width="100px" className='btn' onClick={closeAvatarModal}>
