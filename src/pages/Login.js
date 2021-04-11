@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/client'
 import gql  from 'graphql-tag'
 import { useForm } from '../utils/hooks'
@@ -20,7 +20,7 @@ function Login(props) {
         update(_, result) {
             console.log(result)
             context.login(result.data.login)
-            props.history.push('/')
+            props.history.push('/posts')
         },
         onError(err) {
             console.log(err)
@@ -35,8 +35,6 @@ function Login(props) {
     function loginUserCallBack() {
         loginUser()
     }
-
-    
 
     return (
         <div className="signup-container">
@@ -59,10 +57,10 @@ function Login(props) {
                     value={values.password}
                     error={errors.password ? true : false}
                     onChange={onChange} />
-                
-                <Button type='submit' primary>
+                <button  type='submit' className='btn'>
                     Login
-                </Button>
+                </button>
+                
             </Form>
             {Object.keys(errors).length > 0 && (
                 <div className='ui error message'>

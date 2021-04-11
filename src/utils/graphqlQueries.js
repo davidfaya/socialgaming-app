@@ -107,6 +107,31 @@ export const CREATE_COMMENT_MUTATION = gql`
         }
     }
 `
+export const SIGN_UP_USER = gql`
+    mutation register(
+        $username:String!
+        $email:String!
+        $password:String!
+        $confirmPassword:String!
+    ) {
+        register(
+            registerInput: {
+                username: $username
+                email: $email
+                password: $password
+                confirmPassword: $confirmPassword
+            }
+        ) {
+            id
+            email
+            username
+            createdAt
+            token
+
+        }
+    }
+
+`
 
 export const FETCH_USER_QUERY = gql`
     query($userId: ID!) {
@@ -130,3 +155,25 @@ export const FETCH_USERS_QUERY = gql`
         createdAt
     }
 }`
+
+export const UPDATE_USER = gql`
+    mutation updateUser(
+        $username:String!
+        $email:String!
+        $image:String!
+    ) {
+        updateUser(
+            userUpdate: {
+                username: $username
+                email: $email
+                image: $image
+            }
+        ) {
+            id
+            email
+            username
+            image
+        }
+    }
+
+`

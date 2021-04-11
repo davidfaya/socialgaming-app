@@ -37,7 +37,7 @@ function App() {
           <AuthRoute exact path='/login' component={Login} />
           <AuthRoute exact path='/signup' component={SignUp} />   
           <AuthRoute exact path='/profile' component={Profile} />       
-          <Route exact path='/posts/:postId' component={SinglePost} />
+          <AuthRoute exact path='/posts/:postId' component={SinglePost} />
         </Container> 
       </Router>
     </UsersProvider>

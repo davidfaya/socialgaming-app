@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { Form, Button, Card } from 'semantic-ui-react'
+import { Form, Card } from 'semantic-ui-react'
 import { useForm } from '../utils/hooks'
 import {useMutation} from '@apollo/client'
 import { CREATE_POST_MUTATION } from '../utils/graphqlQueries'
@@ -17,9 +17,9 @@ function PostForm(props) {
 
     const [createPost, {error}] = useMutation(CREATE_POST_MUTATION,
         {
-            
             variables: values,
             update(proxy, result) {
+                
                 console.log(result)
                 
                 clearForm()
@@ -49,9 +49,10 @@ function PostForm(props) {
                                 value = {values.body}
                                 error = {error? true : false}
                                 />
-                                <Button type='submit' primary>
+                                <button  type='submit' className='btn'>
                                     Submit
-                                </Button>
+                                </button>
+                                
                         </Form.Field>
                     </Form>
                     {error && (

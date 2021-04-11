@@ -17,6 +17,23 @@ function usersReducer(state, action) {
                 ...state,
                 users: [...action.payload]
             }
+        case 'UPDATE_USER': 
+            console.log("Update User " , action.payload)
+            let newUsers = state.users.slice()
+            let updateUser = newUsers.filter(user => user.username === action.payload.username)
+            updateUser.email = action.payload.email
+            updateUser.image = action.payload.image
+
+            let updatedUsers = state.users.map(usr => {
+                if (usr.id === updateUser.id)
+                    return updateUser 
+                else return usr
+                })
+
+            return {
+                ...state,
+                users: updatedUsers
+            }
         default:
             return {
                 ...state
@@ -38,12 +55,19 @@ const UsersProvider = ({ children }) => {
             dispatch({ type: 'SET_USERS', payload: data.getUsers })
     },[data])
 
-    
-    return ( 
+    const updateUser = ( user ) => {
+        dispatch({
+            type:'UPDATE_USER',
+            payload: { user }
+        })
+    }
+
+    return (
         <UsersContext.Provider
         value={{
             ...state,
-        }}
+            updateUser,
+          }}
         >
         {children}
         </UsersContext.Provider>

@@ -1,21 +1,22 @@
 import React from 'react';
-import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaMedium } from 'react-icons/fa';
+import { CgProfile } from 'react-icons/cg'
 export const links = [
-  {
-    id: 1,
-    url: '/',
-    text: 'home',
-  },
-  {
-    id: 2,
-    url: '/login',
-    text: 'login',
-  },
-  {
-    id: 3,
-    url: '/signup',
-    text: 'sign up',
-  },
+  // {
+  //   id: 1,
+  //   url: '/',
+  //   text: 'home',
+  // },
+  // {
+  //   id: 2,
+  //   url: '/login',
+  //   text: 'login',
+  // },
+  // {
+  //   id: 3,
+  //   url: '/signup',
+  //   text: 'sign up',
+  // },
   
 ];
 
@@ -23,7 +24,7 @@ export const loggedInLinks = [
     {
       id: 1,
       url: '/',
-      text: 'home',
+      text: 'about',
     },
     {
       id: 2,
@@ -46,22 +47,22 @@ export const loggedInLinks = [
 export const social = [
   {
     id: 1,
-    url: 'https://www.twitter.com',
-    icon: <FaFacebook />,
+    url: 'https://github.com/davidfaya',
+    icon: <FaGithub />,
   },
   {
     id: 2,
-    url: 'https://www.twitter.com',
-    icon: <FaTwitter />,
-  },
-  {
-    id: 3,
-    url: 'https://www.twitter.com',
+    url: 'https://www.www.linkedin.com/in/david-faya-ab67141/',
     icon: <FaLinkedin />,
   },
   {
+    id: 3,
+    url: 'https://medium.com/@davidfaya1980',
+    icon: <FaMedium />,
+  },
+  {
     id: 4,
-    url: 'https://www.twitter.com',
-    icon: <FaBehance />,
+    url: 'https://www.davidfaya.com',
+    icon: <CgProfile />,
   },
 ];

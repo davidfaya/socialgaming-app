@@ -18,7 +18,7 @@ function AuthRoute({component: Component, ...rest}) {
             // render = {props => 
             //     user? <Redirect to='/' /> : <Component {...props} />     
             //     //redirect user to home page if already signed in
-            // }
+            //}
         />
     )
 

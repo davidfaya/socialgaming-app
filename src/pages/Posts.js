@@ -5,14 +5,15 @@ import PostCard from '../components/PostCard'
 import {AuthContext} from '../context/auth'
 import {PostsContext} from '../context/posts'
 import PostForm from '../components/PostForm'
-
+import {useUsersContext} from '../context/users'
 
 
 function Posts() {
 
     const {user} = useContext(AuthContext)
     const {loading, posts} = useContext(PostsContext)
-
+    const {users} = useUsersContext()
+    
     
     console.log('Rendering Posts')
 
@@ -34,12 +35,15 @@ function Posts() {
             }
             
             {loading? (<h1>Loading...</h1>) : (
-                <Transition.Group> { 
+                
+                <Transition.Group> 
+                    <h3>Post Feed</h3>
+                    { 
                     posts && posts.map(post => ( 
                         
                         <Grid.Column key={post.id} style={{marginBottom: 20}}>
                             {/* {console.log(post)} */}
-                            <PostCard post={post} />
+                            <PostCard post={post} image={getUserImage(users, post.username)}/>
                         </Grid.Column>
                     ))
                 }
@@ -51,7 +55,14 @@ function Posts() {
     </Grid>
     )
 }
-
+function getUserImage(users, username) {
+    
+    const usr = users.filter(usr => usr.username===username)
+    if (usr[0])
+        return usr[0].image
+    else
+        return ""
+}
 
 
 export default Posts

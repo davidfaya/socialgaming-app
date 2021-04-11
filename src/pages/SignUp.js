@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/client'
-import gql  from 'graphql-tag'
 import { useForm } from '../utils/hooks'
-
+import { SIGN_UP_USER } from '../utils/graphqlQueries'
 import {AuthContext} from '../context/auth'
 
 
@@ -80,9 +79,10 @@ function SignUp(props) {
                     error={errors.confirmPassword ? true : false}
                     value={values.confirmPassword}
                     onChange={onChange} />
-                <Button type='submit' primary>
+                <button  type='submit' className='btn'>
                     Sign Up
-                </Button>
+                </button>
+                
             </Form>
             {Object.keys(errors).length > 0 && (
                 <div className='ui error message'>
@@ -102,30 +102,6 @@ function SignUp(props) {
 }
 
 
-const SIGN_UP_USER = gql`
-    mutation register(
-        $username:String!
-        $email:String!
-        $password:String!
-        $confirmPassword:String!
-    ) {
-        register(
-            registerInput: {
-                username: $username
-                email: $email
-                password: $password
-                confirmPassword: $confirmPassword
-            }
-        ) {
-            id
-            email
-            username
-            createdAt
-            token
 
-        }
-    }
-
-`
 
 export default SignUp

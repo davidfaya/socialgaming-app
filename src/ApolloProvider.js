@@ -4,8 +4,8 @@ import { ApolloClient,InMemoryCache,createHttpLink,ApolloProvider }  from '@apol
 import { setContext } from 'apollo-link-context'
 require('dotenv').config()
 
-console.log(process.env.BACK_END_HOST)
-const host = process.env.BACK_END_HOST || "https://socialgaming-server.herokuapp.com/" //'http://localhost:5000'
+console.log(process.env.REACT_APP_BACK_END_HOST)
+const host = process.env.REACT_APP_BACK_END_HOST || 'http://localhost:5000'//"https://socialgaming-server.herokuapp.com/" //
 console.log('host:',host)
 const httpLink = createHttpLink({
 
