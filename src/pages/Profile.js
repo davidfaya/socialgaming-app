@@ -30,7 +30,7 @@ function Profile(props) {
     useEffect(()=> {
         //console.log('got user ' , data)
         if (user) setSelectedAvatar(user.image)
-    },[])
+    },[user])
 
     console.log('redering profile')
     const [setUser, {error}] = useMutation(UPDATE_USER,
@@ -50,6 +50,7 @@ function Profile(props) {
         },
         onError(err) {
             console.log(err)
+            error && console.log(error)
         }
     })
     function closeAvatarModal()
